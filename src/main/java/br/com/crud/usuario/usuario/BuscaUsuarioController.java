@@ -18,7 +18,7 @@ public class BuscaUsuarioController {
     public UsuarioResponse busca(@PathVariable Long id) {
 
         return usuarioRepository
-                .findById(id)
+                .buscaUsuarioAtivoPorIdEFlagAtivo(id, "SIM")
                 .map(UsuarioResponse::new)
                 .orElseThrow(() -> new UsuarioNaoEncontradoException(
                         "Usuario %s não encontrado no sistema!".formatted(id)));

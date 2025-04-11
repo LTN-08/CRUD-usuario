@@ -21,9 +21,13 @@ public class NovoUsuarioResquest {
     @NotBlank
     @Length(min = 11, max = 11)
     private String telefone;
+    @NotBlank
+    @Length(min = 3, max = 3)
+    private String estaAtivo;
+
 
     public Usuario resquestToEntity() {
-        return new Usuario(nome, email,cpf, senha, telefone);
+        return new Usuario(nome, email,cpf, senha, telefone, estaAtivo);
     }
 
     public boolean nomeNulo() {
@@ -48,5 +52,9 @@ public class NovoUsuarioResquest {
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public String getEstaAtivo() {
+        return estaAtivo;
     }
 }

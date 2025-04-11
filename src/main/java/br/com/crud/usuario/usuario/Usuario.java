@@ -18,13 +18,16 @@ public class Usuario {
     private String senha;
     @Column(nullable = false, length = 11, unique = true)
     private String telefone;
+    @Column(nullable = false, length = 3)
+    private String estaAtivo;
 
-    public Usuario(String nome, String email, String cpf, String senha, String telefone) {
+    public Usuario(String nome, String email, String cpf, String senha, String telefone, String estaAtivo) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.senha = senha;
         this.telefone = telefone;
+        this.estaAtivo = estaAtivo;
     }
 
     /**
@@ -57,6 +60,10 @@ public class Usuario {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public void inativa() {
+        this.estaAtivo = "NÃO";
     }
 }
 
